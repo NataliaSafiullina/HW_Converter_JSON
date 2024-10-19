@@ -14,7 +14,7 @@ import java.util.List;
 public class JSONOperations {
 
     /**
-     * Метод listToJson полученный список преобразуйте в строчку в формате JSON
+     * Метод listToJson полученный список преобразует в строчку в формате JSON
      * @param list список объектов Java
      * @return строку String
      */
@@ -28,7 +28,7 @@ public class JSONOperations {
     }
 
     /**
-     * Метод writeString записывает полученный в виде строки JSON в файл
+     * Метод writeString записывает полученную в виде строки структуру JSON в файл
      * @param json тип String
      * @param fileName тип String, имя файла
      */
@@ -42,9 +42,8 @@ public class JSONOperations {
     }
 
     /**
-     * Получения JSON из файла с использованием BufferedReader и FileReader.
+     * Метод получает JSON из файла с использованием BufferedReader и FileReader.
      * Метод возвращает прочитанный из файла JSON типа String.
-     *
      * @param fileName тип String
      * @return String jsonString
      */
@@ -68,7 +67,6 @@ public class JSONOperations {
 
     /**
      * Метод преобразует JSON-строку в список сотрудников
-     *
      * @param jsonString тип String
      * @return list тип список объектов класса Employee
      */
@@ -78,8 +76,7 @@ public class JSONOperations {
         // Объект gson нужен для десериализации объектов Java
         Gson gson = builder.create();
         // Тут какая-то магия с типом, так мы определили тип для коллекции при десериализации
-        Type listType = new TypeToken<List<Employee>>() {
-        }.getType();
+        Type listType = new TypeToken<List<Employee>>() {}.getType();
         // Вызываем метод fromJson, который из строки jsonString получает список объектов (без парсера и array)
         List<Employee> employees = gson.fromJson(jsonString, listType);
         return employees;
