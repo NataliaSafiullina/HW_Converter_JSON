@@ -13,6 +13,11 @@ import java.util.List;
 
 public class JSONOperations {
 
+    /**
+     * Метод listToJson полученный список преобразуйте в строчку в формате JSON
+     * @param list список объектов Java
+     * @return строку String
+     */
     public static String listToJson(List<Employee> list) {
         // Создаём билдер для json
         GsonBuilder builder = new GsonBuilder();
@@ -22,6 +27,11 @@ public class JSONOperations {
         return gson.toJson(list);
     }
 
+    /**
+     * Метод writeString записывает полученный в виде строки JSON в файл
+     * @param json тип String
+     * @param fileName тип String, имя файла
+     */
     public static void writeString(String json, String fileName) {
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(json);

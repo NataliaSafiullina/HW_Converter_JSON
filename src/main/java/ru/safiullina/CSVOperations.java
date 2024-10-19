@@ -10,6 +10,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class CSVOperations {
+    /**
+     * Метод parseCSV получает список сотрудников из файла csv
+     * @param columnMapping, список колонок для стратегия мапинга
+     * @param fileName, имя файла
+     * @return - возвращает список сотрудников
+     */
     public static List<Employee> parseCSV(String[] columnMapping, String fileName) {
         // Создаем экземпляр CSVReader
         // Разделитель по умолчанию - запятая

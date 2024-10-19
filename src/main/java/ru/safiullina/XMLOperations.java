@@ -12,6 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLOperations {
+    /**
+     * Метод parseXML получает список сотрудников из файла csv
+     * @param xmlName, имя файла
+     * @return listEmployees, возвращает список сотрудников
+     * @throws IOException
+     * @throws SAXException
+     */
     public static List<Employee> parseXML(String xmlName) throws IOException, SAXException {
 
         List<Employee> listEmployees = new ArrayList<>();
@@ -32,6 +39,12 @@ public class XMLOperations {
         return listEmployees;
     }
 
+    /**
+     * Метод проходится по списку узлов и получите из каждого из них Element.
+     * У элементов получает значения, с помощью которых создает экземпляр класса Employee.
+     * @param node
+     * @param list
+     */
     private static void read(Node node, List<Employee> list) {
         // Извлекаем списка дочерних узлов
         NodeList nodeList = node.getChildNodes();
@@ -43,7 +56,7 @@ public class XMLOperations {
                 // Получаем имя текущего узла
                 String nodeName = node_.getNodeName();
                 if (nodeName.equals("employee")) {
-                    // Получаем элемент
+                    // Для узла employee получаем элемент
                     Element element = (Element) node_;
                     // Создаем объект сотрудник
                     Employee employee = new Employee(
